@@ -2,7 +2,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget{
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -13,11 +13,8 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-
-
-
       //APPBAR
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -31,22 +28,48 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        title: Center(child: Text('A  P  P  B  A  R',
-          style: GoogleFonts.marmelad(
-            textStyle: TextStyle(
-              fontSize: 29.0,
-              fontWeight: FontWeight.bold,
+        title: Center(
+          child: Text(
+            'A  P  P  B  A  R',
+            style: GoogleFonts.marmelad(
+              textStyle: TextStyle(
+                fontSize: 29.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          alignment: Alignment.center,
+          child: Column(
+            children: [
+              TextFormField(
+                decoration: InputDecoration(fillColor: Colors.blue),
+              ),
+              SizedBox(height: 20),
+              InkWell(
+                child: Card(
+                  color: Colors.red,
+                  child: Container(
+                    width: 250,
+                    height: 80,
+                    child: Column(
+                      children: [
+                        SizedBox(height: 10),
+                        Text("data",style: TextStyle(fontSize: 20)),
+                        SizedBox(height: 10),
+                        Text("ddsadasdasata",style: TextStyle(fontSize: 20)),
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
-
-
-
-
-
-
 
       //GOOGLE NAVBAR
       bottomNavigationBar: Container(
@@ -66,7 +89,7 @@ class _HomePageState extends State<HomePage> {
             tabBackgroundColor: Color(0xFF1f4037),
             gap: 10,
             selectedIndex: _selectedIndex,
-            onTabChange: (index){
+            onTabChange: (index) {
               setState(() {
                 _selectedIndex = index;
               });
@@ -76,12 +99,14 @@ class _HomePageState extends State<HomePage> {
               GButton(
                 icon: Icons.person,
                 text: 'Actors',
-                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10 ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               ),
               GButton(
                 icon: Icons.movie,
                 text: 'Films',
-                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10 ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               ),
             ],
           ),
